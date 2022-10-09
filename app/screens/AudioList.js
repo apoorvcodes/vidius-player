@@ -5,15 +5,10 @@ import { RecyclerListView, LayoutProvider } from 'recyclerlistview';
 import AudioListItem from '../components/AudioListItem';
 import Screen from '../components/Screen';
 import OptionModal from '../components/OptionModal';
-import { Audio } from 'expo-av';
 import {
-  play,
-  pause,
-  resume,
-  playNext,
+
   selectAudio,
 } from '../controller/audioController';
-import { storeAudioForNextOpening } from '../utils/helper';
 
 export class AudioList extends Component {
   static contextType = AudioContext;
@@ -180,13 +175,6 @@ export class AudioList extends Component {
                 extendedState={{ isPlaying }}
               />
               <OptionModal
-                // onPlayPress={() => console.log('Playig audio')}
-                // onPlayListPress={() => {
-                //   this.context.updateState(this.context, {
-                //     addToPlayList: this.currentItem,
-                //   });
-                //   this.props.navigation.navigate('PlayList');
-                // }}
                 options={[
                   {
                     title: 'Add to playlist',

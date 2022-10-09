@@ -7,6 +7,7 @@ import Player from '../screens/Player';
 import PlayList from '../screens/PlayList';
 import { MaterialIcons, FontAwesome5, Entypo } from '@expo/vector-icons';
 import PlayListDetail from '../screens/PlayListDetail';
+import Video from '../screens/LoadVideo';
 
 const Tab = createBottomTabNavigator();
 const Stack = createStackNavigator();
@@ -19,6 +20,16 @@ const PlayListScreen = () => {
     </Stack.Navigator>
   );
 };
+
+const VideoListScreen = () => {
+  return (
+    <Stack.Navigator screenOptions={{ headerShown: false }}>
+      <Stack.Screen name='Load' component={Video} />
+      <Stack.Screen name='Player' component={VideoPlayer} />
+    </Stack.Navigator>
+  );
+};
+
 
 const AppNavigator = () => {
   return (
@@ -54,7 +65,7 @@ const AppNavigator = () => {
       />
             <Tab.Screen
         name='Video'
-        component={VideoPlayer}
+        component={VideoListScreen}
         options={{
           tabBarIcon: ({ color, size }) => (
 <Entypo name="video" size={size} color={color} />          ),

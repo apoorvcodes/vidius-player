@@ -1,11 +1,11 @@
 import React from 'react';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { createStackNavigator } from '@react-navigation/stack';
-
+import VideoPlayer from '../screens/VideoPlayer';
 import AudioList from '../screens/AudioList';
 import Player from '../screens/Player';
 import PlayList from '../screens/PlayList';
-import { MaterialIcons, FontAwesome5 } from '@expo/vector-icons';
+import { MaterialIcons, FontAwesome5, Entypo } from '@expo/vector-icons';
 import PlayListDetail from '../screens/PlayListDetail';
 
 const Tab = createBottomTabNavigator();
@@ -42,6 +42,7 @@ const AppNavigator = () => {
           ),
         }}
       />
+
       <Tab.Screen
         name='PlayList'
         component={PlayListScreen}
@@ -49,6 +50,14 @@ const AppNavigator = () => {
           tabBarIcon: ({ color, size }) => (
             <MaterialIcons name='library-music' size={size} color={color} />
           ),
+        }}
+      />
+            <Tab.Screen
+        name='Video'
+        component={VideoPlayer}
+        options={{
+          tabBarIcon: ({ color, size }) => (
+<Entypo name="video" size={size} color={color} />          ),
         }}
       />
     </Tab.Navigator>

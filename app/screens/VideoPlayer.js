@@ -22,8 +22,7 @@ export default function VideoPlayerScreen({ route, navigation }) {
       {
         array.map((v,i) => {
             return (
-
-            <Text style={styles.list}>{`Click to play video ${v.name}`}</Text>
+            <Text key={i} style={styles.list}>{`Click to play video ${v.name}`}</Text>
             )  
         })
       }

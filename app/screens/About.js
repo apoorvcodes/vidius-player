@@ -5,6 +5,8 @@ export default function About() {
   return (
   <View style={styles.container}> 
   <View style={styles.middle}>
+  <Text style={{fontSize: 30}}>Vidius</Text>
+    <Text style={{fontSize: 30}}>Version : 1.0.0</Text>
     <Text style={{fontSize: 20}}>Made By</Text>
     <Text style={{fontSize: 25}}>Sunbeam Bhagwanpur</Text>
     <Text style={{fontSize: 25}}>Team Code: CF 24</Text>

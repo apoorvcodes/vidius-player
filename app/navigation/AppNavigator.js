@@ -5,10 +5,10 @@ import VideoPlayer from '../screens/VideoPlayer';
 import AudioList from '../screens/AudioList';
 import Player from '../screens/Player';
 import PlayList from '../screens/PlayList';
-import { MaterialIcons, FontAwesome5, Entypo } from '@expo/vector-icons';
+import { MaterialIcons, FontAwesome5, Entypo, AntDesign } from '@expo/vector-icons';
 import PlayListDetail from '../screens/PlayListDetail';
 import Video from '../screens/LoadVideo';
-
+import About from '../screens/About';
 const Tab = createBottomTabNavigator();
 const Stack = createStackNavigator();
 
@@ -69,6 +69,14 @@ const AppNavigator = () => {
         options={{
           tabBarIcon: ({ color, size }) => (
 <Entypo name="video" size={size} color={color} />          ),
+        }}
+      />
+      <Tab.Screen
+        name='About'
+        component={About}
+        options={{
+          tabBarIcon: ({ color, size }) => (
+<AntDesign name="infocirlce" size={size} color={color} />    ),
         }}
       />
     </Tab.Navigator>

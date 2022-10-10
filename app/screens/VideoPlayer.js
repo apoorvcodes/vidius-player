@@ -2,11 +2,12 @@ import { StatusBar } from 'expo-status-bar';
 import React from 'react';
 import { StyleSheet, View, Dimensions, Text } from 'react-native';
 import VideoPlayer from '../components/Video';
+import color from '../theme/color';
 
 export default function VideoPlayerScreen({ route, navigation }) {
  const {uri, array} = route.params
   return (
-    <View style={styles.container}>
+    <View style={styles.containerTwo}>
       <StatusBar style="auto" />
        <VideoPlayer
           source={{ uri: uri }}
@@ -17,12 +18,19 @@ export default function VideoPlayerScreen({ route, navigation }) {
           style={{ width: Dimensions.get('window').width, height: 200 }}
           
         />
-         <Text style={{paddingTop: 25, padding:20, fontSize:25}}>More Vids</Text>
-      <View> 
+         <Text style={{paddingTop: 15, padding:15, fontSize:25}}>More Videos</Text>
+      <View style={styles.middle}> 
       {
         array.map((v,i) => {
             return (
-            <Text key={i} style={styles.list}>{`Click to play video ${v.name}`}</Text>
+            <Text onPress={() => {
+              navigation.navigate('Video', {
+                  screen: 'Player',
+                  params: {
+                    uri: v.uri,
+                    array: array
+                  }
+                })}} key={i} style={styles.list}>{`Click to play video ${v.name}`}</Text>
             )  
         })
       }
@@ -33,15 +41,27 @@ export default function VideoPlayerScreen({ route, navigation }) {
 }
 
 const styles = StyleSheet.create({
-  container: {
+  containerTwo: {
     flex: 1,
     backgroundColor: '#fff',
   },
-  list: {
-    shadowColor: "#000000",
-    borderTopWidth: 1,
-    borderBottomWidth:1,
-    fontSize: 15,
+  container: {
+    padding:10,
+    flex: 1,
+    justifyContent: "space-between",
+    backgroundColor:  color.APP_BG,
     padding: 20,
+    margin: 10,
+  },
+  list: {
+ 
+
  },
+ middle: {
+  flex:0.1,
+  backgroundColor: color.FONT_LIGHT,
+  justifyContent: "center",
+  alignItems: "center",
+  borderWidth: 1,
+},
 });
